@@ -1,11 +1,3 @@
-'''Currently, I am facing difficulty in implementing the remaining part:
-- Simhash computation for the document.
-- Comparing simhash of two URLs.
-- Counting number of common bits between them.
-
-Further implementation is pending due to difficulty in understanding
-the Simhash logic and bit comparison process.'''
-
 import sys
 import requests
 import re
@@ -56,3 +48,11 @@ try:
 
 except requests.exceptions.RequestException as e:
     print("Error fetching the page:", e)
+
+'''Currently, I am facing difficulty in implementing the remaining part:
+- Simhash computation for the document.
+- Comparing simhash of two URLs.
+- Counting number of common bits between them.
+
+Further implementation is pending due to difficulty in understanding
+the Simhash logic and bit comparison process.'''
