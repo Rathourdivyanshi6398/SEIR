@@ -35,7 +35,3 @@ def fetch_words(link):
             count_map[item] = 1
 
     return count_map
-
-except Exception as err:
-
-    print("Error:", err)
