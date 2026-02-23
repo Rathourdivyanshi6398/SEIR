@@ -2,13 +2,11 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
-
 # Give argument like this
 if len(sys.argv) != 2:
     print("Please run the program like this:")
     print("python script.py <website_url>")
     sys.exit()
-
 
 website_url = sys.argv[1]
 
@@ -16,15 +14,13 @@ browser_info = {
     "User-Agent": "Mozilla/5.0"
 }
 
-
 try:
     # Request the webpage
     page_data = requests.get(website_url, headers=browser_info)
     page_data.raise_for_status()
 
-    # Convert raw HTML into structured format
+    # Parse the HTML page
     parsed_page = BeautifulSoup(page_data.text, "html.parser")
-
 
     # Print title
     if parsed_page.title is not None:
@@ -32,8 +28,7 @@ try:
         print(parsed_page.title.text.strip())
     else:
         print("No title available.")
-
-
+        
     # Print body text
     if parsed_page.body:
         print("\nMain Content:\n")
@@ -49,4 +44,5 @@ try:
 
 except requests.exceptions.RequestException as error:
     print("Something went wrong while accessing the page:")
+
     print(error)
