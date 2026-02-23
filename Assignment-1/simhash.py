@@ -3,6 +3,7 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
+
 # hash(s) = sum( s[i] * p^i ) mod m
 def word_hash(word):
     p = 53
@@ -13,6 +14,7 @@ def word_hash(word):
         h = (h + ord(word[i]) * (p ** i)) % m
 
     return h
+
 
 # get text and count words
 def fetch_words(link):
@@ -36,23 +38,35 @@ def fetch_words(link):
 
     return count_map
 
-# take URL from command line
-url = sys.argv[1]
 
+# take two URLs from command line
 try:
-    word_counts = fetch_words(url)
+    url1 = sys.argv[1]
+    url2 = sys.argv[2]
 
-    print("Word Count Dictionary:\n")
-    for word, count in word_counts.items():
+    print("Word Count Dictionary for URL 1:\n")
+    word_counts1 = fetch_words(url1)
+    for word, count in word_counts1.items():
         print(word, ":", count)
 
+    print("Word Count Dictionary for URL 2:\n")
+    word_counts2 = fetch_words(url2)
+    for word, count in word_counts2.items():
+        print(word, ":", count)
+
+except IndexError:
+    print("Please provide two URLs.")
 except requests.exceptions.RequestException as e:
     print("Error fetching the page:", e)
 
-'''Currently, I am facing difficulty in implementing the remaining part:
-- Simhash computation for the document.
-- Comparing simhash of two URLs.
-- Counting number of common bits between them.
 
-Further implementation is pending due to difficulty in understanding
-the Simhash logic and bit comparison process.'''
+'''
+At this stage, I have not been able to complete the remaining sections:
+- Generating the Simhash for the document.
+- Comparing the Simhash values of two different URLs.
+- Calculating how many bits are common between them.
+
+The rest of the implementation is still pending because I am having
+difficulty understanding the Simhash algorithm and the bit-level
+comparison process.
+'''
