@@ -35,3 +35,16 @@ def fetch_words(link):
             count_map[item] = 1
 
     return count_map
+
+# take URL from command line
+url = sys.argv[1]
+
+try:
+    word_counts = fetch_words(url)
+
+    print("Word Count Dictionary:\n")
+    for word, count in word_counts.items():
+        print(word, ":", count)
+
+except requests.exceptions.RequestException as e:
+    print("Error fetching the page:", e)
