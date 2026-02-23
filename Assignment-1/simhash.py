@@ -61,7 +61,7 @@ except requests.exceptions.RequestException as e:
 
 
 '''
-At this stage, I have not been able to complete the remaining sections:
+Currently, I have not been able to complete the remaining sections:
 - Generating the Simhash for the document.
 - Comparing the Simhash values of two different URLs.
 - Calculating how many bits are common between them.
@@ -70,3 +70,4 @@ The rest of the implementation is still pending because I am having
 difficulty understanding the Simhash algorithm and the bit-level
 comparison process.
 '''
+
