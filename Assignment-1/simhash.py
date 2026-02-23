@@ -1,3 +1,11 @@
+'''Currently, I am facing difficulty in implementing the remaining part:
+- Simhash computation for the document.
+- Comparing simhash of two URLs.
+- Counting number of common bits between them.
+
+Further implementation is pending due to difficulty in understanding
+the Simhash logic and bit comparison process.'''
+
 import sys
 import requests
 import re
